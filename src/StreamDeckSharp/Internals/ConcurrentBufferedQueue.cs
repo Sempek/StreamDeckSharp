@@ -165,7 +165,7 @@ namespace StreamDeckSharp.Internals
             }
         }
 
-#if NET40
+#if NET46
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Ignore timer dispose, happens during finalize")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0067:Dispose objects before losing scope", Justification = "Ignore timer dispose, happens during finalize")]
         private static Task DelayNet40(int milliseconds)
