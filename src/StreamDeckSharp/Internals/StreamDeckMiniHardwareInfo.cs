@@ -54,7 +54,7 @@ namespace StreamDeckSharp.Internals
                 {
                     for (var x = 0; x < ImgWidth; x++)
                     {
-                        var src = (y * ImgWidth + x) * ColorChannels;
+                        var src = (y * ImgWidth + x) * keyBitmap.NativeColorChannels;
                         var tar = ((ImgWidth - x - 1) * ImgWidth + y) * ColorChannels + BmpHeader.Length;
 
                         bmp[tar + 0] = rawData[src + 0];

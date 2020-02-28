@@ -1,4 +1,5 @@
 ﻿using OpenMacroBoard.SDK;
+using SkiaSharp;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -6,6 +7,16 @@ using System.Runtime.InteropServices;
 
 namespace StreamDeckSharp.Internals
 {
+  internal static class KeyBitmapExtensions
+  {
+    public static byte[] GetScaledVersion(this KeyBitmap keyBitmap, int width, int height)
+    {
+      var info = new SKImageInfo(width, height);
+      var bitmap = ((SKBitmap)keyBitmap.NativeBitmap).Resize(info, SKFilterQuality.High);
+      return bitmap.Bytes;
+    }
+  }
+  /*
     internal static class KeyBitmapExtensions
     {
         public static byte[] GetScaledVersion(this KeyBitmap keyBitmap, int width, int height)
@@ -69,4 +80,5 @@ namespace StreamDeckSharp.Internals
             }
         }
     }
+  */
 }
